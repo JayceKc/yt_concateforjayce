@@ -10,7 +10,7 @@ class DownloadVideos(Step):
 
 
             if utils.video_file_exists(yt):
-                print(f'found existing video file for{url}','skipping')
+                print(f'found existing video file for {url}','skipping')
 
                 continue
 

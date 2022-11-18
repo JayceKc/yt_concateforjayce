@@ -3,6 +3,7 @@ from yt_concate.pipeline.pipeline import Pipeline
 from yt_concate.pipeline.steps.readcaptions import ReadCaptions
 from yt_concate.pipeline.steps.download_captions import DownloadCaptions
 from yt_concate.pipeline.steps.download_videos import DownloadVideos
+from yt_concate.pipeline.steps.edit_video import EditVideo
 from yt_concate.utils import Utils
 from yt_concate.pipeline.steps.preflight import Preflight
 from yt_concate.pipeline.steps.postflight import Postflight
@@ -14,7 +15,8 @@ CHANNEL_ID = 'UCKSVUHI9rbbkXhvAXK-2uxA'
 def main():
     inputs = {
         'channel_id': CHANNEL_ID,
-        'search_word' : 'incredible'
+        'search_word' : 'incredible',
+        'limit' : 40
     }
     steps = [
         Preflight(),
@@ -24,6 +26,7 @@ def main():
         ReadCaptions(),
         Search(),
         DownloadVideos(),
+        EditVideo(),
         Postflight()
 
     ]
